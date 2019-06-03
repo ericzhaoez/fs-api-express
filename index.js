@@ -13,8 +13,14 @@ app.use(express.urlencoded({ extended: false }));
 const usersRouter = require("./users/index");
 app.use("/api/users", usersRouter);
 
-const rentalsRouter = require("./rental-listings/index");
+const rentalsRouter = require("./provider-listings/index");
 app.use("/api/rentals", rentalsRouter);
+
+const bookingsRouter = require("./user-bookings/index");
+app.use("/api/bookings", bookingsRouter);
+
+const registrantsRouter = require("./registrants/index");
+app.use("/api/registrants", registrantsRouter);
 
 app.get("/", (req, res) => {
     console.log(req.headers);
